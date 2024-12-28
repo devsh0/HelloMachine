@@ -19,7 +19,7 @@ in native x86-64 machine code. It works like this:
 ## Build and Run
 * The prototype only targets x86-64 Linux.
 ```shell
-uname -a
+$ uname -a
 Linux ubuntu-amd64 6.12.5-orbstack-00287-gf8da5d508983 # ...
 ```
 I am testing this on guest Ubuntu running on OrbStack. Host is Apple Silicon (M2) Mac.
@@ -27,7 +27,7 @@ I am testing this on guest Ubuntu running on OrbStack. Host is Apple Silicon (M2
 * The code uses APIs only available in Java 23, though with some changes you can get it working
   on Java 21 as well.
 ```shell
-java -version
+$ java -version
 openjdk version "23.0.1" 2024-10-15
 OpenJDK Runtime Environment Zulu23.30+13-CA (build 23.0.1+11)
 OpenJDK 64-Bit Server VM Zulu23.30+13-CA (build 23.0.1+11, mixed mode, sharing)
@@ -35,12 +35,12 @@ OpenJDK 64-Bit Server VM Zulu23.30+13-CA (build 23.0.1+11, mixed mode, sharing)
 
 * Compile:
 ```shell
-javac Demo.java
+$ javac Demo.java
 ```
 
 * Run:
 ```shell
-java --enable-native-access=ALL-UNNAMED Demo
+$ java --enable-native-access=ALL-UNNAMED Demo
 ```
 
 ## Disclaimer
