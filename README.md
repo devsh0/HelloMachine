@@ -1,8 +1,8 @@
 ## Intro
 Java 21 introduced the Foreign Function and Memory API which greatly simplifies interacting
 with native code and libraries. With the ability to call system APIs directly from Java, it
-is now much easier to execute machine code without relying on C/C++ as an intermediary —
-alongside many other practical use cases that are not as silly as this one.
+is now much easier to generate and execute machine code on the fly without relying on C/C++
+as an intermediary.
 
 This is a simple hello-world prototype that prints "Hello Machine!" from a function defined
 in native x86-64 code. It works like this:
