@@ -1,11 +1,11 @@
 ## Intro
-Java 21 introduced the Foreign Function and Memory API which makes interacting with native
-code and libraries so much easier. With the ability to call system APIs directly from Java,
-it is now possible to execute raw machine code without relying on C/C++ as an intermediary —
+Java 21 introduced the Foreign Function and Memory API which greatly simplifies interacting
+with native code and libraries. With the ability to call system APIs directly from Java, it
+is now much easier to execute machine code without relying on C/C++ as an intermediary —
 alongside many other practical use cases that are not as silly as this one.
 
 This is a simple hello-world prototype that prints "Hello Machine!" from a function defined
-in native x86-64 machine code. It works like this:
+in native x86-64 code. It works like this:
 
 1. Map a `W|X` region of memory and copy the machine code there.* 
 2. Register a signal handler with the callback pointing to the function that's present
@@ -14,7 +14,7 @@ in native x86-64 machine code. It works like this:
 3. Raise the signal.
 
 \* While good enough for a prototype, having `W|X` pages in your program for an extended period
-   of time violates Data Execution Prevention (DEP) and is generally considered a bad idea.
+   of time violates Data Execution Prevention (DEP/NX) and is generally a bad idea.
 
 ## Build and Run
 * The prototype only targets x86-64 Linux.
@@ -22,9 +22,9 @@ in native x86-64 machine code. It works like this:
 $ uname -a
 Linux ubuntu-amd64 6.12.5-orbstack-00287-gf8da5d508983 # ...
 ```
-I am testing this on guest Ubuntu running on OrbStack. Host is Apple Silicon (M2) Mac.
+I am testing this on guest Ubuntu running on OrbStack. Host is Apple Silicon Mac.
 
-* The code uses APIs only available in Java 23, though with some changes you can get it working
+* The code uses APIs only available in Java 23, though with some changes you can get it to work
   on Java 21 as well.
 ```shell
 $ java -version
@@ -44,8 +44,8 @@ $ java --enable-native-access=ALL-UNNAMED Demo
 ```
 
 ## Disclaimer
-This prototype utilizes a new, experimental feature that is still under evaluation. Furthermore,
-the method used here may not be reliable, and unexpected behavior or failures could occur. The
-author disclaims any responsibility for potential damage, data loss, or unintended consequences
+This prototype utilizes a new, experimental feature that is still under evaluation. The method
+used here may not be reliable, and unexpected behavior or failures could occur. The author
+disclaims any responsibility for potential damage, data loss, or unintended consequences
 resulting from its use. Use at your own risk and exercise caution when deploying on critical
 environments.
