@@ -4,8 +4,8 @@ with native code and libraries. With the ability to call system APIs directly fr
 is now much easier to generate and execute machine code on the fly without relying on C/C++
 as an intermediary.
 
-**Note: This prototype only demonstrates what's possible. It is purely exploratory and not
-intended to advocate for its practical use.**
+**Please note that this prototype only demonstrates what's possible: it is purely exploratory
+and not intended to advocate for its practical use.**
 
 This is a simple hello-world prototype that prints "Hello Machine!" from a function defined
 in native x86-64 code. It works like this:
