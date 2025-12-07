@@ -1,3 +1,5 @@
+import java.lang.foreign.MemorySegment;
+
 public class Demo {
     private static final byte[] machine_code = new byte[] {
             // prologue
@@ -78,7 +80,7 @@ public class Demo {
     };
 
     public static void main(String[] args) throws Throwable {
-        NativeCodeExecutor.install_code(machine_code);
-        NativeCodeExecutor.execute();
+        MemorySegment addr = NativeCodeExecutor.map_code(machine_code);
+        NativeCodeExecutor.execute(addr);
     }
 }
