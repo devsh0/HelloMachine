@@ -38,7 +38,6 @@ public class NativeCodeExecutor {
 
     public static MemorySegment map_code(byte[] code) throws Throwable {
         int map_size = code.length + (code.length % page_size);
-        map_size = Math.max(map_size, page_size);
         MemorySegment mapped_addr = mmap(map_size);
 
         // Copy machine code into mapped region.
